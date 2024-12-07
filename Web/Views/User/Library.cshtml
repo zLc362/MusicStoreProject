@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Purchased Tracks</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Duration</th>
+        <th>Price</th>
+        <th>Genres</th>
+        <th>Album</th>
+        <th>Artist</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in ViewBag.Tracks) {
+        <tr>
+            <td>@item.Title</td>
+            <td>@item.Duration</td>
+            <td>@item.Price</td>
+            <td>@String.Join(", ",item.Genres)</td>
+            <td>@item.Album.Title</td>
+            <td>@item.Artist.Name</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<h2>Purchased Albums</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Release Date</th>
+        <th>Price</th>
+        <th>Genres</th>
+        <th>Artist</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in ViewBag.Albums) {
+        <tr>
+            <td>@item.Title</td>
+            <td>@item.ReleaseDate</td>
+            <td>@item.Price</td>
+            <td>@String.Join(", ",item.Genres)</td>
+            <td>@item.Artist.Name</td>
+        </tr>
+    }
+    </tbody>
+</table>
