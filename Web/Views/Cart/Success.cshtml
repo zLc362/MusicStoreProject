@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Payment Successful";
+}
+
+<h1>Payment Successful!</h1>
+<p>Thank you for your purchase. Your transaction was successful.</p>
+<p>You will receive a confirmation email shortly.</p>
+<a href="/">Go back to the homepage</a>
+
+<script>
+    window.onload = function () {
+        window.location.href = '@Url.Action("DownloadInvoice", "Cart")';
+    };
+</script>

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Domain.Models.Enums;
+using Newtonsoft.Json;
 
 namespace Domain.Models;
 
@@ -23,6 +24,6 @@ public class Album
     [Required]
     public Guid ArtistId { get; set; }
     public Artist? Artist { get; set; }
-    
+    [JsonIgnore]
     public ICollection<Track> Tracks { get; set; } = new HashSet<Track>();
 }

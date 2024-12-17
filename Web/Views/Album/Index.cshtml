@@ -1,66 +1,73 @@
 @model IEnumerable<Domain.Models.Album>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Music Tracks";
 }
 
-<h1>Index</h1>
+<h1 class="text-center my-4">Music Tracks</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReleaseDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Genres)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CoverImageUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Artist)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genres)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CoverImageUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Artist.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
-                <a asp-action="Buy" asp-route-id="@item.Id">Buy</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="mb-4 text-center">
+    <a class="btn btn-primary" asp-action="Create">Create New Album</a>
+</div>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    @foreach (var item in Model)
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="@item.CoverImageUrl" class="card-img-top" alt="@item.Title Cover" />
+                <div class="card-body">
+                    <h5 class="card-title">@item.Title</h5>
+                    <p class="card-text">
+                        <strong>Artist:</strong> @item.Artist.Name<br />
+                        <strong>Release Date:</strong> @item.ReleaseDate.ToShortDateString()<br />
+                        <strong>Genres:</strong> 
+                        @foreach(var genre in item.Genres)
+                        {
+                            <span>@genre </span>
+                        }
+                        <br />
+                        <strong>Price:</strong> $@item.Price.ToString("F2")
+                    </p>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <a class="btn btn-outline-primary btn-sm" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-outline-secondary btn-sm" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a class="btn btn-outline-success btn-sm" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@item.Id" asp-route-type="album">Add to cart</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .card {
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .card-footer {
+        background-color: #fff;
+        border-top: none;
+    }
+
+    .btn {
+        font-size: 0.85rem;
+    }
+</style>

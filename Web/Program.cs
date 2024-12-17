@@ -6,6 +6,7 @@ using Repository.Implementation;
 using Repository.Interface;
 using Service.Implementation;
 using Service.Interface;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +27,16 @@ builder.Services.AddScoped<ITrackService, TrackServiceImpl>();
 builder.Services.AddScoped<IPlaylistService, PlaylistServiceImpl>();
 builder.Services.AddScoped<IUserService, UserServiceImpl>();
 
+// Add session services
+builder.Services.AddDistributedMemoryCache(); // In-memory session store
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Set the session timeout
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+builder.Services.AddSingleton<StripeService>(); // Register as Singleton if it doesn't have state
 
 
 builder.Services.AddDefaultIdentity<MusicStoreUser>(options => options.SignIn.RequireConfirmedAccount = false)
@@ -50,6 +61,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthorization();
 

@@ -1,21 +1,24 @@
 using System.Diagnostics;
 using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
+using Service.Interface;
 
 namespace Web.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly IAlbumService _albumService;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, IAlbumService albumService)
     {
         _logger = logger;
+        _albumService = albumService;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        return View(await _albumService.GetAll());
     }
 
     public IActionResult Privacy()

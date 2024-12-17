@@ -4,6 +4,7 @@ using Domain.Models.Enums;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using NAudio.Wave;
 using Repository;
 using Service.Interface;
 
@@ -61,10 +62,22 @@ namespace Web.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Duration,Price,FileUrl,Genres,AlbumId,ArtistId")] Track track)
+        public async Task<IActionResult> Create([Bind("Id,Title,Price,Genres,AlbumId,ArtistId")] Track track, IFormFile FileUrl)
         {
             if (ModelState.IsValid)
             {
+                if (FileUrl != null && FileUrl.Length > 0)
+                {
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Audio", FileUrl.FileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await FileUrl.CopyToAsync(stream);
+                    }
+                    track.Duration = GetMp3Duration(filePath);
+                    track.FileUrl = $"/Audio/{FileUrl.FileName}";
+                }
+
                 track.Id = Guid.NewGuid();
                 await _trackService.Create(track);
                 return RedirectToAction(nameof(Index));
@@ -180,6 +193,14 @@ namespace Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return BadRequest();
+        }
+
+        public TimeSpan GetMp3Duration(string filePath)
+        {
+            using (var reader = new Mp3FileReader(filePath))
+            {
+                return reader.TotalTime;
+            }
         }
     }
 }

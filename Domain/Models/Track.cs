@@ -14,7 +14,7 @@ public class Track
     public TimeSpan Duration { get; set; }
     [Required]
     public double Price { get; set; }
-    
+
     public string? FileUrl { get; set; }
     
     public virtual List<MusicGenre> Genres { get; set; } = new List<MusicGenre>();
