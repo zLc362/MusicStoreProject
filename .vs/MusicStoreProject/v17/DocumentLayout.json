@@ -1,81 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\",
+  "WorkspaceRootPath": "D:\\IntegratedSystems\\Project\\MusicStoreProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|c:\\users\\vucko\\desktop\\musicstoreproject\\web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|solutionrelative:web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3FD6BD9-4B8F-479A-ADD0-08B2ECCEA7F8}|Domain\\Domain.csproj|c:\\users\\vucko\\desktop\\musicstoreproject\\domain\\models\\artist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3FD6BD9-4B8F-479A-ADD0-08B2ECCEA7F8}|Domain\\Domain.csproj|solutionrelative:domain\\models\\artist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|c:\\users\\vucko\\desktop\\musicstoreproject\\web\\views\\user\\library.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|solutionrelative:web\\views\\user\\library.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|c:\\users\\vucko\\desktop\\musicstoreproject\\web\\controllers\\trackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|solutionrelative:web\\controllers\\trackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|c:\\users\\vucko\\desktop\\musicstoreproject\\web\\views\\track\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|solutionrelative:web\\views\\track\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3FD6BD9-4B8F-479A-ADD0-08B2ECCEA7F8}|Domain\\Domain.csproj|c:\\users\\vucko\\desktop\\musicstoreproject\\domain\\models\\track.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3FD6BD9-4B8F-479A-ADD0-08B2ECCEA7F8}|Domain\\Domain.csproj|solutionrelative:domain\\models\\track.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{144E6E79-B429-4F52-A140-0C4DD17FD6A9}|Service\\Service.csproj|c:\\users\\vucko\\desktop\\musicstoreproject\\service\\service.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{144E6E79-B429-4F52-A140-0C4DD17FD6A9}|Service\\Service.csproj|solutionrelative:service\\service.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|c:\\users\\vucko\\desktop\\musicstoreproject\\web\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|d:\\integratedsystems\\project\\musicstoreproject\\web\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|solutionrelative:web\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{144E6E79-B429-4F52-A140-0C4DD17FD6A9}|Service\\Service.csproj|c:\\users\\vucko\\desktop\\musicstoreproject\\service\\interface\\ialbumservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{144E6E79-B429-4F52-A140-0C4DD17FD6A9}|Service\\Service.csproj|solutionrelative:service\\interface\\ialbumservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3FD6BD9-4B8F-479A-ADD0-08B2ECCEA7F8}|Domain\\Domain.csproj|c:\\users\\vucko\\desktop\\musicstoreproject\\domain\\models\\shoppingcart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3FD6BD9-4B8F-479A-ADD0-08B2ECCEA7F8}|Domain\\Domain.csproj|solutionrelative:domain\\models\\shoppingcart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{144E6E79-B429-4F52-A140-0C4DD17FD6A9}|Service\\Service.csproj|c:\\users\\vucko\\desktop\\musicstoreproject\\service\\implementation\\artistserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{144E6E79-B429-4F52-A140-0C4DD17FD6A9}|Service\\Service.csproj|solutionrelative:service\\implementation\\artistserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{144E6E79-B429-4F52-A140-0C4DD17FD6A9}|Service\\Service.csproj|c:\\users\\vucko\\desktop\\musicstoreproject\\service\\interface\\iartistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{144E6E79-B429-4F52-A140-0C4DD17FD6A9}|Service\\Service.csproj|solutionrelative:service\\interface\\iartistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|c:\\users\\vucko\\desktop\\musicstoreproject\\web\\views\\cart\\success.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|solutionrelative:web\\views\\cart\\success.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\vucko\\.nuget\\packages\\select.htmltopdf.netcore\\24.1.0\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|c:\\users\\vucko\\desktop\\musicstoreproject\\web\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|solutionrelative:web\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3FD6BD9-4B8F-479A-ADD0-08B2ECCEA7F8}|Domain\\Domain.csproj|c:\\users\\vucko\\desktop\\musicstoreproject\\domain\\models\\album.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3FD6BD9-4B8F-479A-ADD0-08B2ECCEA7F8}|Domain\\Domain.csproj|solutionrelative:domain\\models\\album.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|c:\\users\\vucko\\desktop\\musicstoreproject\\web\\views\\album\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|solutionrelative:web\\views\\album\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|c:\\users\\vucko\\desktop\\musicstoreproject\\web\\views\\track\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|solutionrelative:web\\views\\track\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|c:\\users\\vucko\\desktop\\musicstoreproject\\web\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B0356DB-473E-4734-97BC-540F16AE979E}|Web\\Web.csproj|solutionrelative:web\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{144E6E79-B429-4F52-A140-0C4DD17FD6A9}|Service\\Service.csproj|d:\\integratedsystems\\project\\musicstoreproject\\service\\implementation\\userserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{144E6E79-B429-4F52-A140-0C4DD17FD6A9}|Service\\Service.csproj|solutionrelative:service\\implementation\\userserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -85,240 +18,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Web\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Web\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAACQAAAAAAAAAAAAAAAoAAABgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-15T20:39:24.391Z",
+              "DocumentIndex": 1,
+              "Title": "UserServiceImpl.cs",
+              "DocumentMoniker": "D:\\IntegratedSystems\\Project\\MusicStoreProject\\Service\\Implementation\\UserServiceImpl.cs",
+              "RelativeDocumentMoniker": "Service\\Implementation\\UserServiceImpl.cs",
+              "ToolTip": "D:\\IntegratedSystems\\Project\\MusicStoreProject\\Service\\Implementation\\UserServiceImpl.cs",
+              "RelativeToolTip": "Service\\Implementation\\UserServiceImpl.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAWwCUAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T23:29:43.992Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TrackController.cs",
-              "DocumentMoniker": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Controllers\\TrackController.cs",
-              "RelativeDocumentMoniker": "Web\\Controllers\\TrackController.cs",
-              "ToolTip": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Controllers\\TrackController.cs",
-              "RelativeToolTip": "Web\\Controllers\\TrackController.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAADwv0AAAAA/AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T18:22:53.773Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ArtistServiceImpl.cs",
-              "DocumentMoniker": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Service\\Implementation\\ArtistServiceImpl.cs",
-              "RelativeDocumentMoniker": "Service\\Implementation\\ArtistServiceImpl.cs",
-              "ToolTip": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Service\\Implementation\\ArtistServiceImpl.cs",
-              "RelativeToolTip": "Service\\Implementation\\ArtistServiceImpl.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAzwB4AAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T17:53:02.811Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IAlbumService.cs",
-              "DocumentMoniker": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Service\\Interface\\IAlbumService.cs",
-              "RelativeDocumentMoniker": "Service\\Interface\\IAlbumService.cs",
-              "ToolTip": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Service\\Interface\\IAlbumService.cs",
-              "RelativeToolTip": "Service\\Interface\\IAlbumService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T17:51:21.356Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Track.cs",
-              "DocumentMoniker": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Domain\\Models\\Track.cs",
-              "RelativeDocumentMoniker": "Domain\\Models\\Track.cs",
-              "ToolTip": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Domain\\Models\\Track.cs",
-              "RelativeToolTip": "Domain\\Models\\Track.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAcwBEAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T14:02:19.822Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Library.cshtml",
-              "DocumentMoniker": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Views\\User\\Library.cshtml",
-              "RelativeDocumentMoniker": "Web\\Views\\User\\Library.cshtml",
-              "ToolTip": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Views\\User\\Library.cshtml",
-              "RelativeToolTip": "Web\\Views\\User\\Library.cshtml",
-              "ViewState": "AQIAAEUAAAAAAAAAAAAAABAAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-15T13:38:47.266Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Service.csproj",
-              "DocumentMoniker": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Service\\Service.csproj",
-              "RelativeDocumentMoniker": "Service\\Service.csproj",
-              "ToolTip": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Service\\Service.csproj",
-              "RelativeToolTip": "Service\\Service.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-12-15T18:34:53.52Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Artist.cs",
-              "DocumentMoniker": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Domain\\Models\\Artist.cs",
-              "RelativeDocumentMoniker": "Domain\\Models\\Artist.cs",
-              "ToolTip": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Domain\\Models\\Artist.cs",
-              "RelativeToolTip": "Domain\\Models\\Artist.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T14:04:49.893Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Views\\Track\\Create.cshtml",
-              "RelativeDocumentMoniker": "Web\\Views\\Track\\Create.cshtml",
-              "ToolTip": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Views\\Track\\Create.cshtml",
-              "RelativeToolTip": "Web\\Views\\Track\\Create.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-15T19:09:53.482Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IArtistService.cs",
-              "DocumentMoniker": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Service\\Interface\\IArtistService.cs",
-              "RelativeDocumentMoniker": "Service\\Interface\\IArtistService.cs",
-              "ToolTip": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Service\\Interface\\IArtistService.cs",
-              "RelativeToolTip": "Service\\Interface\\IArtistService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T17:59:04.123Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Success.cshtml",
-              "DocumentMoniker": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Views\\Cart\\Success.cshtml",
-              "RelativeDocumentMoniker": "Web\\Views\\Cart\\Success.cshtml",
-              "ToolTip": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Views\\Cart\\Success.cshtml",
-              "RelativeToolTip": "Web\\Views\\Cart\\Success.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-15T14:56:47.208Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "CartController.cs",
-              "DocumentMoniker": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Controllers\\CartController.cs",
+              "DocumentMoniker": "D:\\IntegratedSystems\\Project\\MusicStoreProject\\Web\\Controllers\\CartController.cs",
               "RelativeDocumentMoniker": "Web\\Controllers\\CartController.cs",
-              "ToolTip": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Controllers\\CartController.cs",
-              "RelativeToolTip": "Web\\Controllers\\CartController.cs",
-              "ViewState": "AQIAAKEAAAAAAAAAAAAIwLEAAAAnAAAA",
+              "ToolTip": "D:\\IntegratedSystems\\Project\\MusicStoreProject\\Web\\Controllers\\CartController.cs*",
+              "RelativeToolTip": "Web\\Controllers\\CartController.cs*",
+              "ViewState": "AQIAAHkAAAAAAAAAAAA1wI0AAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T13:55:47.57Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ShoppingCart.cs",
-              "DocumentMoniker": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Domain\\Models\\ShoppingCart.cs",
-              "RelativeDocumentMoniker": "Domain\\Models\\ShoppingCart.cs",
-              "ToolTip": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Domain\\Models\\ShoppingCart.cs",
-              "RelativeToolTip": "Domain\\Models\\ShoppingCart.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T13:59:25.353Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "readme.txt",
-              "DocumentMoniker": "C:\\Users\\vucko\\.nuget\\packages\\select.htmltopdf.netcore\\24.1.0\\readme.txt",
-              "RelativeDocumentMoniker": "..\\..\\.nuget\\packages\\select.htmltopdf.netcore\\24.1.0\\readme.txt",
-              "ToolTip": "C:\\Users\\vucko\\.nuget\\packages\\select.htmltopdf.netcore\\24.1.0\\readme.txt",
-              "RelativeToolTip": "..\\..\\.nuget\\packages\\select.htmltopdf.netcore\\24.1.0\\readme.txt",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-12-15T17:40:54.073Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Album.cs",
-              "DocumentMoniker": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Domain\\Models\\Album.cs",
-              "RelativeDocumentMoniker": "Domain\\Models\\Album.cs",
-              "ToolTip": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Domain\\Models\\Album.cs",
-              "RelativeToolTip": "Domain\\Models\\Album.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAwwAEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T14:02:23.393Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Views\\Cart\\Index.cshtml",
-              "RelativeDocumentMoniker": "Web\\Views\\Cart\\Index.cshtml",
-              "ToolTip": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Views\\Cart\\Index.cshtml",
-              "RelativeToolTip": "Web\\Views\\Cart\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-15T13:55:44.143Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Views\\Album\\Index.cshtml",
-              "RelativeDocumentMoniker": "Web\\Views\\Album\\Index.cshtml",
-              "ToolTip": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Views\\Album\\Index.cshtml",
-              "RelativeToolTip": "Web\\Views\\Album\\Index.cshtml",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAACMAAABzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-15T13:55:15.524Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Views\\Track\\Index.cshtml",
-              "RelativeDocumentMoniker": "Web\\Views\\Track\\Index.cshtml",
-              "ToolTip": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Views\\Track\\Index.cshtml",
-              "RelativeToolTip": "Web\\Views\\Track\\Index.cshtml",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAAAEIAAABtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-15T13:52:45.132Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Web\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\vucko\\Desktop\\MusicStoreProject\\Web\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Web\\Controllers\\UserController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T13:38:32.727Z"
+              "WhenOpened": "2024-12-17T23:28:42.297Z",
+              "EditorCaption": ""
             }
           ]
         }

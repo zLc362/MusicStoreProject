@@ -5,15 +5,23 @@
     @foreach (var item in Model.Albums)
     {
         <li>@item.Title - $@item.Price</li>
+        <form asp-action="DeleteAlbum" method="post" class="d-inline">
+            <input type="hidden" name="id" value="@item.Id" />
+            <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+        </form>
     }
     @foreach (var item in Model.Tracks)
     {
         <li>@item.Title - $@item.Price</li>
+         <form asp-action="DeleteTrack" method="post" class="d-inline">
+            <input type="hidden" name="id" value="@item.Id" />
+            <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+         </form>
     }
 </ul>
 
 <h3>Total: $@Model.Total</h3>
 
 <form method="post" action="/Cart/Checkout">
-    <button type="submit">Checkout</button>
+    <button @(Model.Total == 0 ? "disabled" : "") type="submit">Checkout</button>
 </form>

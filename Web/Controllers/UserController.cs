@@ -18,7 +18,7 @@ public class UserController : Controller
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? null;
         if (userId == null)
         {
-            return Redirect("Identity/Account/Login");
+            return Redirect("/Identity/Account/Login");
         }
         
         var tracks = await _userService.GetUserTracks(userId);

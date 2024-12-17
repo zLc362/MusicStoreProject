@@ -16,7 +16,10 @@ public class TrackRepositoryImpl : ITrackRepository
     }
     public async Task<IEnumerable<Track>> GetTracks()
     {
-        return await _tracks.Include(track=>track.Album).ToListAsync();
+        return await _tracks
+            .Include(track=>track.Album)
+            .Include(track=>track.Artist)
+            .ToListAsync();
     }
 
     public async Task<Track?> GetTrackById(Guid trackId)

@@ -15,6 +15,7 @@
     using System.IO;
     using System.Linq;
     using iText.Kernel.Exceptions;
+    using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
 
     public class CartController : Controller
     {
@@ -76,7 +77,7 @@
                 cart.Total += album.Price;
                 SaveShoppingCart(cart);
 
-                await _userService.BuyAlbum(userId, id.Value);
+
             }
             else if (type.Equals("track"))
             {
@@ -92,7 +93,6 @@
                 cart.Total += track.Price;
                 SaveShoppingCart(cart);
 
-                await _userService.BuyTrack(userId, id.Value);
 
             }
 
@@ -119,12 +119,72 @@
         }
 
         [HttpGet("checkout/success")]
-        public IActionResult Success()
+        public async Task<IActionResult> SuccessAsync()
         {
             var cart = GetShoppingCart();
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? null;
+
+            foreach (var item in cart.Albums)
+            {
+                await _userService.BuyAlbum(userId, item.Id);
+            }
+
+            foreach (var item in cart.Tracks)
+            {
+                await _userService.BuyTrack(userId, item.Id);
+            }
 
             return View("Success",cart);
 
+        }
+
+        [HttpGet("checkout/cancel")]
+        public IActionResult Cancel()
+        {
+            var cart = GetShoppingCart();
+            
+            cart.Tracks.Clear();
+            cart.Albums.Clear();
+            cart.Total = 0;
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteAlbum(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var cart = GetShoppingCart();
+            var album = await _albumService.GetById(id.Value);
+            cart.Albums.RemoveAll(t => t.Id == album!.Id);
+            cart.Total -= album!.Price;
+
+            SaveShoppingCart(cart);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteTrack(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var cart = GetShoppingCart();
+            var track = await _trackService.GetById(id.Value);
+            cart.Tracks.RemoveAll(t => t.Id == track!.Id);
+            cart.Total -= track!.Price;
+
+            SaveShoppingCart(cart);
+
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpGet("checkout/download-invoice")]
@@ -192,11 +252,11 @@
     </html>";
         }
 
-        [HttpGet("checkout/cancel")]
-        public IActionResult Cancel()
-        {
-            return View();
-        }
+        //[HttpGet("checkout/cancel")]
+        //public IActionResult Cancel()
+        //{
+        //    return View();
+        //}
     }
 
 }
