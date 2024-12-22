@@ -45,4 +45,9 @@ public class PlaylistRepositoryImpl : IPlaylistRepository
         await _context.SaveChangesAsync();
         return playlist;
     }
+
+    public async Task<IEnumerable<Playlist>> GetAllPlaylistsByIds(IEnumerable<Guid> playListIds)
+    {
+        return await _playlists.Include(playlist => playlist.Tracks).Where(playlist => playListIds.Contains(playlist.Id)).ToListAsync();
+    }
 }

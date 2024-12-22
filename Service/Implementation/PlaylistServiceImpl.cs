@@ -43,4 +43,8 @@ public class PlaylistServiceImpl : IPlaylistService
         return await _playlistRepository.Delete(playlist);
     }
 
+    public async Task<IEnumerable<Playlist>> GetAllByIds(IEnumerable<Guid> playListIds)
+    {
+        return await _playlistRepository.GetAllPlaylistsByIds(playListIds);
+    }
 }

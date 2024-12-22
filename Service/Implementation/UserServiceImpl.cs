@@ -8,13 +8,15 @@ public class UserServiceImpl : IUserService
 {
     private readonly ITrackService _trackService;
     private readonly IAlbumService _albumService;
+    private readonly IPlaylistService _playlistService;
     private readonly UserManager<MusicStoreUser> _userManager;
 
-    public UserServiceImpl(ITrackService trackService, UserManager<MusicStoreUser> userManager, IAlbumService albumService)
+    public UserServiceImpl(ITrackService trackService, UserManager<MusicStoreUser> userManager, IAlbumService albumService, IPlaylistService playlistService)
     {
         _trackService = trackService;
         _userManager = userManager;
         _albumService = albumService;
+        _playlistService = playlistService;
     }
 
     public async Task<bool> BuyTrack(string userId, Guid trackId)
@@ -64,6 +66,19 @@ public class UserServiceImpl : IUserService
         return await _trackService.GetAllByIds(user.PurchasedItems);
     }
 
+
+    public List<Track> GetUserTracksInList(string userId)
+    {
+        var user = _userManager.FindByIdAsync(userId).GetAwaiter().GetResult();
+        if (user == null)
+        {
+            return new List<Track>();
+        }
+        var tracks = _trackService.GetAllByIds(user.PurchasedItems).GetAwaiter().GetResult();
+        return tracks.ToList();
+    }
+
+
     public async Task<IEnumerable<Album>> GetUserAlbums(string userId)
     {
         var user = await _userManager.FindByIdAsync(userId);
@@ -72,5 +87,27 @@ public class UserServiceImpl : IUserService
             return new List<Album>();
         }
         return await _albumService.GetAllByIds(user.PurchasedItems);
+    }
+
+    public async Task<IEnumerable<Album>> GetUserAlbumsInList(string userId)
+    {
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user == null)
+        {
+            return new List<Album>();
+        }
+        var albums = _albumService.GetAllByIds(user.PurchasedItems).GetAwaiter().GetResult();
+        return albums.ToList();
+    }
+
+    public List<Playlist> GetUserPlaylistsInList(string userId)
+    {
+        var user = _userManager.FindByIdAsync(userId).GetAwaiter().GetResult();
+        if (user == null)
+        {
+            return new List<Playlist>();
+        }
+        var tracks = user.Playlists.ToList();
+        return tracks;
     }
 }
