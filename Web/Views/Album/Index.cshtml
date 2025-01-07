@@ -1,13 +1,16 @@
 @model IEnumerable<Domain.Models.Album>
 
 @{
-    ViewData["Title"] = "Music Tracks";
+    ViewData["Title"] = "Albums";
 }
 
-<h1 class="text-center my-4">Music Tracks</h1>
+<h1 class="text-center my-4">Albums</h1>
 
 <div class="mb-4 text-center">
-    <a class="btn btn-primary" asp-action="Create">Create New Album</a>
+     @if (User.Identity.IsAuthenticated)
+    {
+        <a class="btn btn-primary" asp-action="Create">Create New Album</a>
+    }
 </div>
 
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
@@ -15,7 +18,9 @@
     {
         <div class="col">
             <div class="card h-100 shadow-sm">
-                <img src="@item.CoverImageUrl" class="card-img-top" alt="@item.Title Cover" />
+                <img src="@(string.IsNullOrEmpty(item.CoverImageUrl) ? "https://static.vecteezy.com/system/resources/previews/004/141/669/original/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg" : item.CoverImageUrl)"
+                     class="card-img-top"
+                     alt="Image" />
                 <div class="card-body">
                     <h5 class="card-title">@item.Title</h5>
                     <p class="card-text">
@@ -32,9 +37,12 @@
                 </div>
                 <div class="card-footer d-flex justify-content-between">
                     <a class="btn btn-outline-primary btn-sm" asp-action="Details" asp-route-id="@item.Id">Details</a>
-                    <a class="btn btn-outline-secondary btn-sm" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                    <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    <a class="btn btn-outline-success btn-sm" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@item.Id" asp-route-type="album">Add to cart</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="btn btn-outline-secondary btn-sm" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <a class="btn btn-outline-success btn-sm" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@item.Id" asp-route-type="album">Add to cart</a>
+                    }
                 </div>
             </div>
         </div>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8OxhyziLxUqLtYYI4F/r8gAAAAACAAAAAAAQZgAAAAEAACAAAABg0/2XEELOm1+qwtzqmhkwRjkX4JMo7xHlGPtOiB/MbwAAAAAOgAAAAAIAACAAAABAMZ4E0lyLVQouHdUsKb+2sUYG9nK9Pslpy7sXrifYPYAAAADJdYsVkkXT3WiWAlp6UrEH/vdkuHog0cKSLTTtvr7Z2oMUt8YZ5M3YcOJBJM3BxbF10x0n/v91MRsUT38l/G14Co1WKtSisgeRAuaSLkQoZ2wjz5Edj605xZp0bWaREDWuIa6e/sAo/vunIGj+ZF/nNu4qsrq7I+E5WO5WUEh/NkAAAABOelaHKIPiwIaWwpQfxciJl41WilndevOPRtjZ6pCrJEcio10gXYNZh/KjJfEDOhTQXXZEKncRCz0PDyKAQX8P</EncryptedPassword>
+    <History>True|2025-01-07T06:52:36.9791907Z;True|2025-01-07T07:41:11.5204810+01:00;False|2025-01-07T07:38:18.7817555+01:00;False|2025-01-07T07:13:41.8296109+01:00;False|2025-01-07T06:51:30.8597288+01:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="ApplicationDbContextConnection">
+      <Value>Data Source=finkimusicstoredbserver.database.windows.net,1433%3bInitial Catalog=MusicStore_db%3bUser ID=bojan.vuchkov%3bPassword=Halamadrid2002</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="Repository.ApplicationDbContext">
+      <Value>Data Source=finkimusicstoredbserver.database.windows.net,1433%3bInitial Catalog=MusicStore_db%3bUser ID=bojan.vuchkov%3bPassword=Halamadrid2002</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

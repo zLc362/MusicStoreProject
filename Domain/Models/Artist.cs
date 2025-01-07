@@ -11,7 +11,7 @@ public class Artist
     [Required]
     public string Name { get; set; }
     public string? Biography { get; set; } = String.Empty;
-
+    public string? Image { get; set; } = String.Empty;
     [JsonIgnore]
     public virtual ICollection<Album> Albums { get; set; } = new HashSet<Album>();
     [JsonIgnore]

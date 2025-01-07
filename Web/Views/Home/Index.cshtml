@@ -20,8 +20,10 @@
             {
                 <div class="col album-card" data-title="@item.Title.ToLower()" data-artist="@item.Artist.Name.ToLower()">
                     <div class="card h-100 shadow-sm">
-                        <img src="@item.CoverImageUrl" class="card-img-top" alt="@item.Title Cover" />
-                        <div class="card-body">
+                        <img src="@(string.IsNullOrEmpty(item.CoverImageUrl) ? "https://static.vecteezy.com/system/resources/previews/004/141/669/original/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg" : item.CoverImageUrl)"
+                             class="card-img-top"
+                             alt="Image" />              
+                             <div class="card-body">
                             <h5 class="card-title">@item.Title</h5>
                             <p class="card-text">
                                 <strong>Artist:</strong> @item.Artist.Name<br />

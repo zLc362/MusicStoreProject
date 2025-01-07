@@ -110,4 +110,14 @@ public class UserServiceImpl : IUserService
         var tracks = user.Playlists.ToList();
         return tracks;
     }
+
+    List<Track> IUserService.GetUserAlbumsInList(string userId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public async Task<MusicStoreUser> GetUserById(string userId)
+    {
+        return await _userManager.FindByIdAsync(userId);
+    }
 }

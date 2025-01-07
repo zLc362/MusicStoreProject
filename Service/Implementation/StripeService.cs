@@ -10,14 +10,17 @@ namespace Service.Implementation
     using System;
     using Microsoft.Extensions.Configuration;
     using Stripe.Checkout;
+    using Domain.Models;
+    using Microsoft.Extensions.Options;
 
     public class StripeService
     {
-        private readonly string _stripeSecretKey;
+        private readonly StripeSettings _stripeSettings;
 
-        public StripeService(IConfiguration configuration)
+        public StripeService(IOptions<StripeSettings> stripeSettings)
         {
-            StripeConfiguration.ApiKey = "sk_test_51PfJ5ZCIzuMsZ1B84oco5TwUKgXMnbfINEupJs6BdcRdap68w2XDI4Naf3JQukGXF1dJLy4gkZ49vaExwts3aG9q00kIAmyGVA";
+            _stripeSettings = stripeSettings.Value;
+            StripeConfiguration.ApiKey = _stripeSettings.SecretKey;
         }
 
         public Session CreateCheckoutSession(string successUrl, string cancelUrl, double amount)

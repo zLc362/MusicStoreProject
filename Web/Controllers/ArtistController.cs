@@ -55,14 +55,26 @@ namespace Web.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Biography")] Artist artist)
+        public async Task<IActionResult> Create([Bind("Id,Name,Biography")] Artist artist, IFormFile Image)
         {
-            Console.WriteLine("BIOGRAPHY");
-            Console.WriteLine(artist.Biography);
-            ModelState.Values.SelectMany(v => v.Errors.Select(b => b.ErrorMessage)).ToList().ForEach(x=>Console.WriteLine(x));
+
             if (ModelState.IsValid)
             {
                 artist.Id = Guid.NewGuid();
+                if (Image != null && Image.Length > 0)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await Image.CopyToAsync(memoryStream);
+                        var imageBytes = memoryStream.ToArray();
+
+                        var mimeType = Image.ContentType;
+
+                        var base64Image = $"data:{mimeType};base64,{Convert.ToBase64String(imageBytes)}";
+                        artist.Image = base64Image;
+                    }
+
+                }
                 await _artistService.Create(artist);
                 return RedirectToAction(nameof(Index));
             }

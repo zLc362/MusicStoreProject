@@ -1,27 +1,166 @@
 ﻿@model Domain.Models.ShoppingCart
 
-<h2>Your Shopping Cart</h2>
-<ul>
-    @foreach (var item in Model.Albums)
-    {
-        <li>@item.Title - $@item.Price</li>
-        <form asp-action="DeleteAlbum" method="post" class="d-inline">
-            <input type="hidden" name="id" value="@item.Id" />
-            <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
-        </form>
-    }
-    @foreach (var item in Model.Tracks)
-    {
-        <li>@item.Title - $@item.Price</li>
-         <form asp-action="DeleteTrack" method="post" class="d-inline">
-            <input type="hidden" name="id" value="@item.Id" />
-            <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
-         </form>
-    }
-</ul>
+@{
+    ViewData["Title"] = "Shopping Cart";
+}
 
-<h3>Total: $@Model.Total</h3>
+<h2 class="text-center mb-4">Your Shopping Cart</h2>
 
-<form method="post" action="/Cart/Checkout">
-    <button @(Model.Total == 0 ? "disabled" : "") type="submit">Checkout</button>
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card shadow-lg hover-zoom">
+                <div class="card-body">
+                    @if (Model.Albums.Count > 0)
+                    {
+                        <h5 class="card-title">Albums</h5>
+                        <ul class="list-group list-group-flush">
+                            @foreach (var item in Model.Albums)
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-center hover-item">
+                                    <span>@item.Title - $@item.Price</span>
+                                    <form asp-action="DeleteAlbum" method="post" class="d-inline">
+                                        <input type="hidden" name="id" value="@item.Id" />
+                                        <button type="submit" class="btn btn-outline-danger btn-sm btn-animation">Delete</button>
+                                    </form>
+                                </li>
+                            }
+                        </ul>
+                    }
+                    @if (Model.Tracks.Count > 0)
+                    {
+                        <h5 class="card-title mt-4">Tracks</h5>
+                        <ul class="list-group list-group-flush">
+                            @foreach (var item in Model.Tracks)
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-center hover-item">
+                                    <span>@item.Title - $@item.Price</span>
+                                    <form asp-action="DeleteTrack" method="post" class="d-inline">
+                                        <input type="hidden" name="id" value="@item.Id" />
+                                        <button type="submit" class="btn btn-outline-danger btn-sm btn-animation">Delete</button>
+                                    </form>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-lg hover-zoom">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total</h5>
+                    <h3 class="total-price">$@Model.Total</h3>
+
+                    <form method="post" action="/Cart/Checkout">
+                        <button class="btn btn-primary btn-lg btn-animation @(Model.Total == 0 ? "disabled" : "")" type="submit">
+                            Checkout
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <style>
+        .hover-item:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .hover-zoom:hover {
+            transform: scale(1.03);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #343a40;
+        }
+
+        .btn-outline-danger {
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+
+            .btn-outline-danger:hover {
+                background-color: #dc3545;
+                color: white;
+                transform: translateY(-2px);
+            }
+
+            .btn-outline-danger:active {
+                transform: translateY(2px);
+            }
+
+        .btn-animation {
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+            .btn-animation:hover {
+                transform: translateY(-3px);
+            }
+
+        .total-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #28a745;
+            transition: color 0.3s ease;
+        }
+
+            .total-price:hover {
+                color: #218838;
+            }
+
+        .list-group-item {
+            padding: 12px 16px;
+            border-bottom: 1px solid #f1f1f1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+            .list-group-item:hover {
+                background-color: #f8f9fa;
+                cursor: pointer;
+            }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                transform: translateY(-3px);
+            }
+
+            .btn-primary:active {
+                transform: translateY(1px);
+            }
+
+            .btn-primary.disabled, .btn-primary:disabled {
+                background-color: #6c757d;
+                cursor: not-allowed;
+                transform: none;
+            }
+    </style>
+

@@ -23,13 +23,16 @@
         private readonly IAlbumService _albumService;
         private readonly IUserService _userService;
         private readonly ITrackService _trackService;
+        private readonly IEmailService _emailService;
 
-        public CartController(StripeService stripeService, IAlbumService albumService, IUserService userService, ITrackService trackService)
+
+        public CartController(StripeService stripeService, IAlbumService albumService, IUserService userService, ITrackService trackService, IEmailService emailService)
         {
             _stripeService = stripeService;
             _albumService = albumService;
             _userService = userService;
             _trackService = trackService;
+            _emailService = emailService;
         }
 
         private ShoppingCart GetShoppingCart()
@@ -133,6 +136,13 @@
             {
                 await _userService.BuyTrack(userId, item.Id);
             }
+
+            var user = await _userService.GetUserById(userId);
+            string emailSubject = "Order Success";
+            string emailBody = GenerateInvoiceHtml(cart);
+            var m = user.Email;
+
+            await _emailService.SendEmailAsync("vuckovbojan045@gmail.com", "Order Success", emailBody);
 
             return View("Success",cart);
 
@@ -257,6 +267,9 @@
         //{
         //    return View();
         //}
+
+       
     }
+
 
 }

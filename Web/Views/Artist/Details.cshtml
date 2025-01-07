@@ -1,30 +1,86 @@
 @model Domain.Models.Artist
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Artist Details";
 }
 
-<h1>Details</h1>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="mb-3">@Model.Name</h1>
+            <div>
+                <p>@Model.Biography</p>
+            </div>
+            <div>
+                <h4>Albums</h4>
+                <ul class="list-group">
+                    @foreach (var album in Model.Albums)
+                    {
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>
+                                    <strong>@album.Title</strong>
+                                    <span class="text-muted">(@album.ReleaseDate.ToShortDateString())</span>
+                                </span>
+                                <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#tracks-@album.Id">
+                                    View Tracks
+                                </button>
+                            </div>
+                            <div class="collapse" id="tracks-@album.Id">
+                                <ul class="list-group mt-2">
+                                    @foreach (var track in album.Tracks)
+                                    {
+                                        <li class="list-group-item">
+                                            <strong>@track.Title</strong>
+                                            <span class="text-muted"> - @track.Duration minutes</span>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="mt-4">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary mb-2">Edit</a>
+                    <a class="btn btn-danger mb-2" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+                }
+                <a asp-action="Index" class="btn btn-secondary mb-2">Back to List</a>
+            </div>
+        </div>
 
-<div>
-    <h4>Artist</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Biography)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Biography)
-        </dd>
-    </dl>
+        <div class="col-md-6 text-center">
+            <img src="@(string.IsNullOrEmpty(Model.Image) ? "https://static.vecteezy.com/system/resources/previews/004/141/669/original/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg" : Model.Image)"
+                 alt="@Model.Name Image"
+                 class="rounded shadow mb-4"
+                 style="max-width: 100%; height: auto; max-height: 400px;">
+        </div>
+    </div>
+
+    <hr class="my-4">
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .list-group-item {
+        border: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+        .list-group-item:last-child {
+            border-bottom: none;
+        }
+
+    .collapse {
+        margin-top: 10px;
+    }
+
+    img {
+        object-fit: cover;
+    }
+</style>

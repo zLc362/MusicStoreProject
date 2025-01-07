@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
+    options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddTransient<IAlbumRepository, AlbumRepositoryImpl>();
@@ -26,6 +26,10 @@ builder.Services.AddScoped<IArtistService, ArtistServiceImpl>();
 builder.Services.AddScoped<ITrackService, TrackServiceImpl>();
 builder.Services.AddScoped<IPlaylistService, PlaylistServiceImpl>();
 builder.Services.AddScoped<IUserService, UserServiceImpl>();
+builder.Services.AddScoped<IEmailService, EmailServiceImpl>();
+
+builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
+builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("StripeSettings"));
 
 // Add session services
 builder.Services.AddDistributedMemoryCache(); // In-memory session store

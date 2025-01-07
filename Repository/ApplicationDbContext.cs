@@ -15,4 +15,6 @@ public class ApplicationDbContext : IdentityDbContext<MusicStoreUser>
         : base(options)
     {
     }
+
+
 }

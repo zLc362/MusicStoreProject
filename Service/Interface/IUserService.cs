@@ -14,4 +14,5 @@ public interface IUserService
     public List<Track> GetUserAlbumsInList(string userId);
     public List<Playlist> GetUserPlaylistsInList(string userId);
     public Task<IEnumerable<Album>> GetUserAlbums(string userId);
+    public Task<MusicStoreUser> GetUserById(string userId);
 }
