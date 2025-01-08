@@ -11,7 +11,8 @@ public class UserServiceImpl : IUserService
     private readonly IPlaylistService _playlistService;
     private readonly UserManager<MusicStoreUser> _userManager;
 
-    public UserServiceImpl(ITrackService trackService, UserManager<MusicStoreUser> userManager, IAlbumService albumService, IPlaylistService playlistService)
+    public UserServiceImpl(ITrackService trackService, UserManager<MusicStoreUser> userManager,
+        IAlbumService albumService, IPlaylistService playlistService)
     {
         _trackService = trackService;
         _userManager = userManager;
@@ -33,10 +34,12 @@ public class UserServiceImpl : IUserService
         {
             user.PurchasedItems.Add(trackId);
         }
+
         await _userManager.UpdateAsync(user);
-        
+
         return true;
     }
+
     public async Task<bool> BuyAlbum(string userId, Guid albumId)
     {
         var user = await _userManager.FindByIdAsync(userId);
@@ -51,8 +54,9 @@ public class UserServiceImpl : IUserService
         {
             user.PurchasedItems.Add(albumId);
         }
+
         await _userManager.UpdateAsync(user);
-        
+
         return true;
     }
 
@@ -63,6 +67,7 @@ public class UserServiceImpl : IUserService
         {
             return new List<Track>();
         }
+
         return await _trackService.GetAllByIds(user.PurchasedItems);
     }
 
@@ -74,6 +79,7 @@ public class UserServiceImpl : IUserService
         {
             return new List<Track>();
         }
+
         var tracks = _trackService.GetAllByIds(user.PurchasedItems).GetAwaiter().GetResult();
         return tracks.ToList();
     }
@@ -86,6 +92,7 @@ public class UserServiceImpl : IUserService
         {
             return new List<Album>();
         }
+
         return await _albumService.GetAllByIds(user.PurchasedItems);
     }
 
@@ -96,6 +103,7 @@ public class UserServiceImpl : IUserService
         {
             return new List<Album>();
         }
+
         var albums = _albumService.GetAllByIds(user.PurchasedItems).GetAwaiter().GetResult();
         return albums.ToList();
     }
@@ -107,8 +115,8 @@ public class UserServiceImpl : IUserService
         {
             return new List<Playlist>();
         }
-        var tracks = user.Playlists.ToList();
-        return tracks;
+
+        return _playlistService.GetUserPlaylists(user.Id).GetAwaiter().GetResult().ToList();
     }
 
     List<Track> IUserService.GetUserAlbumsInList(string userId)
@@ -119,5 +127,25 @@ public class UserServiceImpl : IUserService
     public async Task<MusicStoreUser> GetUserById(string userId)
     {
         return await _userManager.FindByIdAsync(userId);
+    }
+
+    public async Task<bool> AddTrackToPlaylist(string userId, Guid trackId, Guid playlistId)
+    {
+        var userPlaylists = GetUserPlaylistsInList(userId);
+        var playlist = userPlaylists.FirstOrDefault(p => p.Id == playlistId);
+        var track = await _trackService.GetById(trackId);
+        if (playlist == null || track == null)
+        {
+            return false;
+        }
+
+        if (playlist.Tracks.Any(t => t.Id == trackId))
+        {
+            return true;
+        }
+
+        playlist.Tracks.Add(track);
+        await _playlistService.Update(playlist);
+        return true;
     }
 }

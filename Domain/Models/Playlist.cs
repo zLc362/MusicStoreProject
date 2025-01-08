@@ -19,5 +19,5 @@ public class Playlist
     public string UserId { get; set; }
     public MusicStoreUser? User { get; set; }
     
-    public virtual ICollection<Track> Tracks { get; set; }
+    public virtual ICollection<Track> Tracks { get; set; } = new HashSet<Track>();
 }

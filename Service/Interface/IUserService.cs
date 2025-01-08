@@ -7,7 +7,7 @@ public interface IUserService
 {
     public Task<bool> BuyTrack(string userId, Guid trackId);
     public Task<bool> BuyAlbum(string userId, Guid albumId);
-    
+
     public Task<IEnumerable<Track>> GetUserTracks(string userId);
 
     public List<Track> GetUserTracksInList(string userId);
@@ -15,4 +15,5 @@ public interface IUserService
     public List<Playlist> GetUserPlaylistsInList(string userId);
     public Task<IEnumerable<Album>> GetUserAlbums(string userId);
     public Task<MusicStoreUser> GetUserById(string userId);
+    public Task<bool> AddTrackToPlaylist(string userId, Guid trackId, Guid playlistId);
 }

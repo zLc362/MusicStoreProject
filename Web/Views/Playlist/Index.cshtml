@@ -4,50 +4,132 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 class="text-center">Playlists</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Create New Playlist</a>
 </p>
-<table class="table">
-    <thead>
+@if (User.Identity.IsAuthenticated)
+{
+    <section class="section">
+        <h2 class="section-title">User Playlists</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Creation Date</th>
+                <th>Type</th>
+                <th>Created By</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @if (Enumerable.Count(ViewBag.UserPlaylists) == 0)
+            {
+                <td colspan="6" class="text-center"> You currently don't have any playlists. Create one with the button above.</td>
+            }
+            @foreach (var item in ViewBag.UserPlaylists)
+            {
+                <tr>
+                    <td>
+                        @item.PlaylistName
+                    </td>
+                    <td>
+                        @item.CreatedDate.ToString("dd/MM/yyyy")
+                    </td>
+                    <td>
+                        @item.PlaylistType
+                    </td>
+                    <td>
+                        @item.User?.FirstName @item.User?.LastName
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-center gap-2">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </section>
+}
+
+<section class="section">
+    <h2 class="section-title">Public Playlists</h2>
+    <table class="table table-striped">
+        <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PlaylistName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PlaylistType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
-            </th>
+            <th>Name</th>
+            <th>Creation Date</th>
+            <th>Type</th>
+            <th>Created By</th>
             <th></th>
         </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PlaylistName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PlaylistType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        @foreach (var item in ViewBag.PublicPlaylists)
+        {
+            <tr>
+                <td>
+                    @item.PlaylistName
+                </td>
+                <td>
+                    @item.CreatedDate.ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @item.PlaylistType
+                </td>
+                <td>
+                    @item.User?.FirstName @item.User?.LastName
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center gap-2">
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-secondary">Details</a>
+                    </div>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</section>
+
+<style>
+    .section-title {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #f2f2f2;
+        padding-bottom: 5px;
+    }
+
+    .table {
+        background-color: #fff;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f4f4f4;
+    }
+
+    .table-bordered th, .table-bordered td {
+        border: 1px solid #ddd;
+    }
+
+    .table th, .table td {
+        padding: 12px;
+        text-align: left;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+</style>

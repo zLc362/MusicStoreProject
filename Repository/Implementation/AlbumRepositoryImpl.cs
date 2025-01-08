@@ -17,17 +17,21 @@ public class AlbumRepositoryImpl : IAlbumRepository
 
     public async Task<IEnumerable<Album>> GetAlbums()
     {
-        return await _albums.Include(album=>album.Artist).ToListAsync();
+        return await _albums.Include(album => album.Artist).ToListAsync();
     }
 
     public async Task<Album?> GetAlbumById(Guid albumId)
     {
-        return await _albums.Include(album=>album.Artist).FirstOrDefaultAsync(album => album.Id == albumId);
+        return await _albums.Include(album => album.Artist)
+            .Include(album => album.Tracks)
+            .FirstOrDefaultAsync(album => album.Id == albumId);
     }
 
     public async Task<IEnumerable<Album>> GetAllAlbumsByIds(IEnumerable<Guid> albumIds)
     {
-        return await _albums.Include(album => album.Artist).Where(album => albumIds.Contains(album.Id)).ToListAsync();
+        return await _albums.Include(album => album.Artist)
+            .Include(album => album.Tracks)
+            .Where(album => albumIds.Contains(album.Id)).ToListAsync();
     }
 
     public async Task<Album> Create(Album album)
@@ -50,5 +54,4 @@ public class AlbumRepositoryImpl : IAlbumRepository
         await _context.SaveChangesAsync();
         return album;
     }
-    
 }

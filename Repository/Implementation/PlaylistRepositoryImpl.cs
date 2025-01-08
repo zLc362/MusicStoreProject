@@ -17,12 +17,18 @@ public class PlaylistRepositoryImpl : IPlaylistRepository
 
     public async Task<IEnumerable<Playlist>> GetPlaylists()
     {
-        return await _playlists.ToListAsync();
+        return await _playlists.Include(playlist => playlist.User)
+            .Include(playlist => playlist.Tracks)
+            .ThenInclude(track => track.Artist)
+            .ToListAsync();
     }
 
     public async Task<Playlist?> GetPlaylistById(Guid playlistId)
     {
-        return await _playlists.FindAsync(playlistId);
+        return await _playlists.Include(playlist => playlist.User)
+            .Include(playlist => playlist.Tracks)
+            .ThenInclude(track => track.Artist)
+            .FirstOrDefaultAsync(playlist => playlist.Id == playlistId);
     }
 
     public async Task<Playlist> Create(Playlist playlist)
@@ -46,8 +52,15 @@ public class PlaylistRepositoryImpl : IPlaylistRepository
         return playlist;
     }
 
+    public async Task<IEnumerable<Playlist>> GetUserPlaylists(string userId)
+    {
+        return await _playlists.Include(playlist => playlist.User).Where(playlist => playlist.UserId == userId)
+            .ToListAsync();
+    }
+
     public async Task<IEnumerable<Playlist>> GetAllPlaylistsByIds(IEnumerable<Guid> playListIds)
     {
-        return await _playlists.Include(playlist => playlist.Tracks).Where(playlist => playListIds.Contains(playlist.Id)).ToListAsync();
+        return await _playlists.Include(playlist => playlist.Tracks)
+            .Where(playlist => playListIds.Contains(playlist.Id)).ToListAsync();
     }
 }

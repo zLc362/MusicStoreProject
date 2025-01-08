@@ -23,10 +23,11 @@ public class PlaylistServiceImpl : IPlaylistService
         return await _playlistRepository.GetPlaylistById(id);
     }
 
-    public async Task<Playlist> Create(Playlist playlist,string userId)
+    public async Task<Playlist> Create(Playlist playlist, string userId)
     {
         playlist.Id = Guid.NewGuid();
         playlist.UserId = userId;
+        playlist.CreatedDate = DateTime.Now;
         return await _playlistRepository.Create(playlist);
     }
 
@@ -41,6 +42,11 @@ public class PlaylistServiceImpl : IPlaylistService
         if (playlist == null)
             return null;
         return await _playlistRepository.Delete(playlist);
+    }
+
+    public async Task<IEnumerable<Playlist>> GetUserPlaylists(string userId)
+    {
+        return await _playlistRepository.GetUserPlaylists(userId);
     }
 
     public async Task<IEnumerable<Playlist>> GetAllByIds(IEnumerable<Guid> playListIds)

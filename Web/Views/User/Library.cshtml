@@ -9,29 +9,47 @@
         <h2 class="section-title">Purchased Tracks</h2>
         <table class="table table-striped">
             <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Genres</th>
-                    <th>Album</th>
-                    <th>Artist</th>
-                    <th></th>
-                </tr>
+            <tr>
+                <th>Title</th>
+                <th>Genres</th>
+                <th>Album</th>
+                <th>Artist</th>
+                <th></th>
+                <th></th>
+            </tr>
             </thead>
             <tbody>
-                @foreach (var item in ViewBag.Tracks)
-                {
-                    <tr>
-                        <td>@item.Title</td>
-                        <td>@String.Join(", ", item.Genres)</td>
-                        <td>@item?.Album?.Title</td>
-                        <td>@item?.Artist?.Name</td>
-                        <td>
-                            <audio controls>
-                                <source src="@item?.FileUrl" type="audio/mpeg">
-                            </audio>
-                        </td>
-                    </tr>
-                }
+            @if (Enumerable.Count(ViewBag.Tracks) == 0)
+            {
+                <td colspan="6" class="text-center"> No Tracks Purchased</td>
+            }
+            @foreach (var item in ViewBag.Tracks)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@String.Join(", ", item.Genres)</td>
+                    <td>@item?.Album?.Title</td>
+                    <td>@item?.Artist?.Name</td>
+                    <td>
+                        <audio controls>
+                            <source src="@item?.FileUrl" type="audio/mpeg">
+                        </audio>
+                    </td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                Add To Playlist
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                @foreach (var playlist in ViewBag.Playlists)
+                                {
+                                    <a class="dropdown-item" asp-action="AddTrackToPlaylist" asp-route-trackId=@item?.Id asp-route-playlistId=@playlist?.Id>@playlist?.PlaylistName</a>
+                                }
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
             </tbody>
         </table>
     </section>
@@ -41,53 +59,75 @@
         <h2 class="section-title">Purchased Albums</h2>
         <table class="table table-hover">
             <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Release Date</th>
-                    <th>Genres</th>
-                    <th>Artist</th>
-                    <th></th>
-                </tr>
+            <tr>
+                <th>Title</th>
+                <th>Release Date</th>
+                <th>Genres</th>
+                <th>Artist</th>
+                <th></th>
+            </tr>
             </thead>
             <tbody>
-                @foreach (var album in ViewBag.Albums)
-                {
-                    <tr class="album-row" data-album-id="@album.Id" style="cursor:pointer;">
-                        <td>@album.Title</td>
-                        <td>@album.ReleaseDate</td>
-                        <td>@String.Join(", ", album.Genres)</td>
-                        <td>@album?.Artist?.Name</td>
-                    </tr>
-                    <tr class="track-list" id="tracks-@album.Id" style="display:none;">
-                        <td colspan="5">
-                            <table class="table table-sm table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Track Title</th>
-                                        <th>Genres</th>
-                                        <th>Artist</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var track in album.Tracks)
-                                    {
-                                        <tr>
-                                            <td>@track.Title</td>
-                                            <td>@String.Join(", ", track.Genres)</td>
-                                            <td>@track?.Artist?.Name</td>
-                                            <td>
-                                                <audio controls>
-                                                    <source src="@track?.FileUrl" type='audio/mpeg' />
-                                                </audio>
-                                            </td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                }
+            @if (Enumerable.Count(ViewBag.Albums) == 0)
+            {
+                <td colspan="5" class="text-center"> No Albums Purchased</td>
+            }
+            @foreach (var album in ViewBag.Albums)
+            {
+                <tr class="album-row" data-album-id="@album.Id" style="cursor:pointer;">
+                    <td>@album.Title</td>
+                    <td>@album.ReleaseDate</td>
+                    <td>@String.Join(", ", album.Genres)</td>
+                    <td>@album?.Artist?.Name</td>
+                </tr>
+                <tr class="track-list" id="tracks-@album.Id" style="display:none;">
+                    <td colspan="5">
+                        <table class="table table-sm table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Track Title</th>
+                                <th>Genres</th>
+                                <th>Artist</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @if (Enumerable.Count(album.Tracks) == 0)
+                            {
+                                <td colspan="5" class="text-center"> No Tracks in this album</td>
+                            }
+                            @foreach (var track in album.Tracks)
+                            {
+                                <tr>
+                                    <td>@track.Title</td>
+                                    <td>@String.Join(", ", track.Genres)</td>
+                                    <td>@track?.Artist?.Name</td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="@track?.FileUrl" type='audio/mpeg'/>
+                                        </audio>
+                                    </td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Add To Playlist
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                @foreach (var playlist in ViewBag.Playlists)
+                                                {
+                                                    <a class="dropdown-item" asp-action="AddTrackToPlaylist" asp-route-trackId=@track?.Id asp-route-playlistId=@playlist?.Id>@playlist?.PlaylistName</a>
+                                                }
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            }
             </tbody>
         </table>
     </section>
@@ -146,6 +186,7 @@
     }
 
 </style>
+
 @section Scripts {
     <script>
         $(document).ready(function () {
@@ -158,4 +199,3 @@
         });
     </script>
 }
-

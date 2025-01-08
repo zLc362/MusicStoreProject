@@ -10,4 +10,5 @@ public interface IPlaylistRepository
     public Task<Playlist> Create(Playlist playlist);
     public Task<Playlist> Update(Playlist playlist);
     public Task<Playlist> Delete(Playlist playlist);
+    public Task<IEnumerable<Playlist>> GetUserPlaylists(string userId);
 }

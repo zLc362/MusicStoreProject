@@ -1,42 +1,108 @@
-@model Domain.Models.Playlist
+@model Domain.DTO.PlaylistDetailsDTO
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 class="mb-4">@Model.PlaylistName</h1>
 
-<div>
-    <h4>Playlist</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PlaylistName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PlaylistName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PlaylistType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PlaylistType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.User)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.User.Id)
-        </dd>
-    </dl>
+<div class="mb-3">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <strong>Creation Date:</strong> @Model.CreatedDate
+        </li>
+        <li class="list-group-item">
+            <strong>Type:</strong> @Model.PlaylistType
+        </li>
+        <li class="list-group-item">
+            <strong>Created By:</strong> @Model.CreatedBy
+        </li>
+    </ul>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<div class="my-4">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
 </div>
+
+<table class="table table-hover table-bordered">
+    <thead class="thead-dark">
+    <tr>
+        <th>Title</th>
+        <th>Artist</th>
+        <th>Duration</th>
+        <th>Genres</th>
+        <th>Price</th>
+        <th></th>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <th></th>
+        }
+    </tr>
+    </thead>
+    <tbody>
+    @if (Model.Tracks.Count == 0)
+    {
+        <td colspan="7" class="text-center"> No Tracks in Playlist</td>
+    }
+    @foreach (var track in Model.Tracks)
+    {
+        <tr>
+            <td>@track.Title</td>
+            <td>@track.Artist?.Name</td>
+            <td>@track.Duration.ToString(@"mm\:ss")</td>
+            <td>@String.Join(", ", track.Genres)</td>
+            <td>@track.Price</td>
+            <td>
+                <audio controls>
+                    <source src="@track.FileUrl" type="audio/mpeg">
+                </audio>
+            </td>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <td>
+                    @if (Model.IsCreatedByCurrentUser)
+                    {
+                        <a asp-action="RemoveTrackFromPlaylist" asp-route-trackId="@track.Id" asp-route-playlistId="@Model.Id" class="btn btn-danger">Remove</a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@track.Id" asp-route-type="track" class="btn btn-success">Add to cart</a>
+                    }
+                </td>
+            }
+        </tr>
+    }
+    </tbody>
+</table>
+<style>
+    .table {
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: #f8f9fa;
+    }
+
+        .table th, .table td {
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .table th {
+            background-color: #343a40;
+            color: #ffffff;
+        }
+
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .table td {
+        padding: 15px;
+    }
+
+    .btn {
+        font-size: 12px;
+        margin: 0 5px;
+    }
+
+</style>
