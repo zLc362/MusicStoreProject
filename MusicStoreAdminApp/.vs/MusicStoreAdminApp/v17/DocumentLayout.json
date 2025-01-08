@@ -1,0 +1,104 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\IntegratedSystems\\Project\\MusicStoreProject\\MusicStoreAdminApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E059EDE6-0104-4011-AED4-DFFC3EB82D29}|MusicStoreAdminApp.csproj|d:\\integratedsystems\\project\\musicstoreproject\\musicstoreadminapp\\controllers\\artistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E059EDE6-0104-4011-AED4-DFFC3EB82D29}|MusicStoreAdminApp.csproj|solutionrelative:controllers\\artistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E059EDE6-0104-4011-AED4-DFFC3EB82D29}|MusicStoreAdminApp.csproj|d:\\integratedsystems\\project\\musicstoreproject\\musicstoreadminapp\\models\\artist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E059EDE6-0104-4011-AED4-DFFC3EB82D29}|MusicStoreAdminApp.csproj|solutionrelative:models\\artist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E059EDE6-0104-4011-AED4-DFFC3EB82D29}|MusicStoreAdminApp.csproj|d:\\integratedsystems\\project\\musicstoreproject\\musicstoreadminapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E059EDE6-0104-4011-AED4-DFFC3EB82D29}|MusicStoreAdminApp.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E059EDE6-0104-4011-AED4-DFFC3EB82D29}|MusicStoreAdminApp.csproj|d:\\integratedsystems\\project\\musicstoreproject\\musicstoreadminapp\\views\\artist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E059EDE6-0104-4011-AED4-DFFC3EB82D29}|MusicStoreAdminApp.csproj|solutionrelative:views\\artist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\IntegratedSystems\\Project\\MusicStoreProject\\MusicStoreAdminApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\IntegratedSystems\\Project\\MusicStoreProject\\MusicStoreAdminApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAkAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-08T21:18:11.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\IntegratedSystems\\Project\\MusicStoreProject\\MusicStoreAdminApp\\Views\\Artist\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Artist\\Index.cshtml",
+              "ToolTip": "D:\\IntegratedSystems\\Project\\MusicStoreProject\\MusicStoreAdminApp\\Views\\Artist\\Index.cshtml",
+              "RelativeToolTip": "Views\\Artist\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-08T21:17:10.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Artist.cs",
+              "DocumentMoniker": "D:\\IntegratedSystems\\Project\\MusicStoreProject\\MusicStoreAdminApp\\Models\\Artist.cs",
+              "RelativeDocumentMoniker": "Models\\Artist.cs",
+              "ToolTip": "D:\\IntegratedSystems\\Project\\MusicStoreProject\\MusicStoreAdminApp\\Models\\Artist.cs",
+              "RelativeToolTip": "Models\\Artist.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAcAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T20:56:29.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ArtistController.cs",
+              "DocumentMoniker": "D:\\IntegratedSystems\\Project\\MusicStoreProject\\MusicStoreAdminApp\\Controllers\\ArtistController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ArtistController.cs",
+              "ToolTip": "D:\\IntegratedSystems\\Project\\MusicStoreProject\\MusicStoreAdminApp\\Controllers\\ArtistController.cs",
+              "RelativeToolTip": "Controllers\\ArtistController.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwBMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T20:54:57.556Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
